@@ -23,7 +23,7 @@ use Contao\Module as Contao_Module;
  *
  * Navigation Module that creates a Foundation Top Bar responsive nav
  * @copyright  2015 Rhyme Digital
- * @author     Blair Winans <blair@rhyme.digital>
+ * @author     Sebastijan Ribaric <sebastijan.ribaric@media-8.org>
  * @package    Zurb_Foundation
  */
 class RevealModalWindow extends Contao_Module

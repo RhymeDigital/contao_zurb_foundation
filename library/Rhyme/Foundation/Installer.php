@@ -10,9 +10,9 @@
  * @license    http://opensource.org/licenses/lgpl-3.0.html
  */
  
-namespace HBAgency\Foundation;
+namespace Rhyme\Foundation;
 
-use HBAgency\Foundation\Installer\Initializer;
+use Rhyme\Foundation\Installer\Initializer;
  
 /**
  * Class Installer
