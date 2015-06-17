@@ -14,14 +14,14 @@
 /**
  * Run in a custom namespace, so the class can be replaced
  */
-namespace Rhyme\Hooks\ParseTemplate;
+namespace Rhyme\Hooks\LoadFormField;
 
 use Rhyme\Foundation\Parser;
 
 /**
- * Class FoundationParseTemplate 
+ * Class FoundationLoadFormField
  *
- * Runs hook for \Contao\Template\parseTemplate
+ * Runs hook for \Contao\Form\LoadFormField
  * @copyright  2015 Rhyme Digital
  * @author     Blair Winans <blair@rhyme.digital>
  * @package    Zurb_Foundation
@@ -29,35 +29,34 @@ use Rhyme\Foundation\Parser;
 class Foundation extends \Controller
 {
 	/**
-	 * Parse the template
-	 * @param Template
-	 * @return Template
+	 * Modify a generated widget
+	 * @param Contao/Widget $objWidget
+	 * @param string $formId
+	 * @param array $arrFormData
+	 * @param Contao/Form $objForm
+	 * @return void
 	 */
-	public function run(&$objTemplate)
+	public function run($objWidget, $formId, $arrFormData, $objForm)
 	{
-		if(TL_MODE == 'FE')
+        if(TL_MODE == 'FE')
 		{
-		    // get the Data of the Template Object
-            $arrData = $objTemplate->getData();
+		    // get the Data of the Widget Object
+            $arrData = Parser::getFoundationAttributesFromWidget($objWidget);
             
             //Add foundation classes
 		    $strClasses = Parser::getFoundationClasses($arrData);
 		    if(!empty($strClasses))
 		    {
-                $objTemplate->class .= (!empty($objTemplate->class) ? ' ' : '') . $strClasses;
+                $objWidget->class .= (!empty($objWidget->class) ? ' ' : '') . $strClasses;
             }
             //Add equalize data attributes
             $strEqualize = Parser::getEqualizeAttributes($arrData);
             if(!empty($strEqualize))
             {
-                $objTemplate->cssID .= " $strEqualize";
+                $objWidget->cssID .= " $strEqualize";
             }
-            
-            //Check whether we have orbit slides
-            $objTemplate->isOrbitSlide = Parser::checkForOrbitSlides($objTemplate);
         }
         
-		return $objTemplate;
+        return $objWidget;
 	}
-  
 }

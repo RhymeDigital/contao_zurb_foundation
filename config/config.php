@@ -72,6 +72,7 @@ array_insert($GLOBALS['TL_FFL'], 20, array
  * Hooks
  */
 $GLOBALS['TL_HOOKS']['parseTemplate'][] 		= array('Rhyme\Hooks\ParseTemplate\Foundation', 'run');
+$GLOBALS['TL_HOOKS']['loadFormField'][]         = array('Rhyme\Hooks\LoadFormField\Foundation', 'run');
 $GLOBALS['TL_HOOKS']['getPageLayout'][] 		= array('Rhyme\Hooks\GetPageLayout\Foundation', 'run');
 $GLOBALS['TL_HOOKS']['getCombinedFile'][] 		= array('Rhyme\Hooks\GetCombinedFile\Foundation', 'run');
 //$GLOBALS['TL_HOOKS']['getAttributesFromDca'][]  = array('Rhyme\Hooks\StoreTabTitles\Foundation', 'run');
