@@ -52,7 +52,7 @@ array_insert($GLOBALS['FE_MOD']['navigationMenu'], 8, array
 (
 	'foundationnav_topbar' => '\Rhyme\Module\Foundation\NavTopBar',
 	'foundation_tabbar' => '\Rhyme\Module\Foundation\TabBar',
-	'foundation_iconbar'    => '\HBAgency\Module\Foundation\IconBar',   
+	'foundation_iconbar'    => '\Rhyme\Module\Foundation\IconBar',   
 ));
 
 
