@@ -127,8 +127,49 @@ class SCSS extends \Controller
      */
     protected static function applyConfig($objConfig, $strPath)
     {
+        self::includeComponents($objConfig, $strPath);
     	self::changeBreakpoints($objConfig, $strPath);
     	self::addLargeGrids($objConfig, $strPath);
+    }
+    
+        /**
+     * Only include selected Foundation components
+     * @param \Contao\ThemeModel
+     * @param string
+     */
+    protected static function includeComponents($objConfig, $strPath)
+    { 
+        $arrAllComponents       = $GLOBALS['FOUNDATION_COMPONENTS'];
+        $arrComponentsToInclude = deserialize($objConfig->foundation_components);
+        
+        $objFile = new \File($strPath . '/foundation.scss');
+		$strContent = $objFile->getContent();
+		$strFormat = '  @import "foundation/components/%s";';
+		
+		//Loop through all components to make sure we only include ones we want
+		foreach($arrAllComponents as $component)
+		{
+    		$strInclude = sprintf($strFormat, $component);
+    		
+    		if(in_array($component, $arrComponentsToInclude))
+    		{
+        		if(stripos($strContent, $strInclude) === false)
+        		{
+        		    //Include if not there
+                    $strContent .= "\n" . $strInclude;
+                }
+    		}
+    		else 
+    		{
+        		//Remove
+		        $strContent = str_replace($strInclude, '', $strContent);
+            }
+    	}
+    	
+    	//Clean up blank lines
+    	$strContent = preg_replace("/(^[\r\n]*|[\r\n]+)[\s\t]*[\r\n]+/", "\n", $strContent);
+    	$objFile->write($strContent);
+    	$objFile->close();
     }
     
     /**

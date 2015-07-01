@@ -128,6 +128,51 @@ $GLOBALS['FOUNDATION_JS'] = array
 );
 
 /**
+ * Foundation Components array for combiner
+ */
+$GLOBALS['FOUNDATION_COMPONENTS'] = array
+(
+	'accordion',
+	'alert-boxes',
+	'block_grid',
+	'breadcrumbs',
+	'button-groups',
+	'buttons',
+	'clearing',
+	'dropdown-buttons',
+	'dropdown',
+	'flex-video',
+	'forms',
+	'grid',
+	'icon-bar',
+	'inline-lists',
+	'joyride',
+	'keystrokes',
+	'labels',
+	'magellan',
+	'offcanvas',
+	'orbit',
+	'pagination',
+	'panels',
+	'pricing-tables',
+	'progress-bars',
+	'range-slider',
+	'reveal',
+	'side-nav',
+	'split-buttons',
+	'sub-nav',
+	'switches',
+	'tables',
+	'tabs',
+	'thumbs',
+	'tooltips',
+	'top-bar',
+	'type',
+	'visibility',
+);
+
+
+/**
  * Purge jobs
  */
 array_insert($GLOBALS['TL_PURGE']['folders'], 4, array

@@ -14,6 +14,7 @@
  * Palettes
  */
 $GLOBALS['TL_DCA']['tl_theme']['palettes']['default'] .= ';{foundation_legend:close},
+                                                            foundation_components,
                                                             foundation_largegrids,
 															foundation_break_medium,
 															foundation_break_large,
@@ -23,6 +24,15 @@ $GLOBALS['TL_DCA']['tl_theme']['palettes']['default'] .= ';{foundation_legend:cl
 /**
  * Fields
  */
+$GLOBALS['TL_DCA']['tl_theme']['fields']['foundation_components'] = array
+(
+	'label'                   => &$GLOBALS['TL_LANG']['tl_theme']['foundation_components'],
+	'inputType'               => 'checkboxWizard',
+	'options'                 => &$GLOBALS['FOUNDATION_COMPONENTS'],
+	'eval'                    => array('multiple'=>'true'),
+	'sql'                     => "blob NULL"
+);
+ 
 $GLOBALS['TL_DCA']['tl_theme']['fields']['foundation_break_medium'] = array
 (
 	'label'                   => &$GLOBALS['TL_LANG']['tl_theme']['foundation_break_medium'],
