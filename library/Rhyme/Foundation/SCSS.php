@@ -144,7 +144,7 @@ class SCSS extends \Controller
         
         $objFile = new \File($strPath . '/foundation.scss');
         $strContent = $objFile->getContent();
-        $strFormat = '  @import "foundation/components/%s";';
+        $strFormat = "  @import 'foundation/components/%s';";
         
         //Loop through all components to make sure we only include ones we want
         foreach($arrAllComponents as $component)
