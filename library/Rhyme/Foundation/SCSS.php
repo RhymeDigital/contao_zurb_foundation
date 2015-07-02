@@ -132,7 +132,7 @@ class SCSS extends \Controller
         self::addLargeGrids($objConfig, $strPath);
     }
     
-        /**
+    /**
      * Only include selected Foundation components
      * @param \Contao\ThemeModel
      * @param string
@@ -175,6 +175,7 @@ class SCSS extends \Controller
     /**
      * Change the Foundation breakpoints
      * // !TODO - simplify this with another method, and also use custom base font size when that gets implemented
+     * // !TODO - Eliminate the unit option since Zurb seems to have moved to a pixel-based setup as of 5.5.2
      * @param \Contao\ThemeModel
      * @param string
      */
@@ -184,87 +185,49 @@ class SCSS extends \Controller
             
         $arrRanges = $GLOBALS['TL_LANG']['FOUNDATION']['SCSS']['BREAKPOINT'];
         
-        $arrSmallRange = $arrRanges['small'];
-        $strSmallReplace    = '(' . implode(', ', $arrSmallRange) . ')';
-        
-        $arrMediumRange = $arrRanges['medium'];
-        $strMediumReplace   = '(' . implode(', ', $arrMediumRange) . ')';
         $arrMediumCustom    = deserialize($objConfig->foundation_break_medium);
-        
-        $arrLargeRange = $arrRanges['large'];
-        $strLargeReplace    = '(' . implode(', ', $arrLargeRange) . ')';
         $arrLargeCustom     = deserialize($objConfig->foundation_break_large);
-        
-        $arrXLargeRange = $arrRanges['xlarge'];
-        $strXLargeReplace   = '(' . implode(', ', $arrXLargeRange) . ')';
         $arrXLargeCustom    = deserialize($objConfig->foundation_break_xlarge);
-        
-        $arrXXLargeRange = $arrRanges['xxlarge'];
-        $strXXLargeReplace  = '(' . implode(', ', $arrXXLargeRange) . ')';
         $arrXXLargeCustom   = deserialize($objConfig->foundation_break_xxlarge);
         
-        $blnReplace = false;
+        $objFile = new \File($strPath . '/foundation/components/_global.scss');
+        $strContent = $objFile->getContent();
         
         if(!empty($arrMediumCustom['value']))
         {
-            $blnReplace = true;
-            //Set the small max value to the medium breakpoint
-            $arrSmallRange[1] = $arrMediumCustom['value'] . $arrMediumCustom['unit'];
-            //Now set the medium min value
-            $fltAdd = $arrMediumCustom['unit']=='px' ? '1' : '0.063';
-            $arrMediumRange[0] = ($arrMediumCustom['value'] + $fltAdd) . $arrMediumCustom['unit'];
+            $intSmallRange      = $arrRanges['small'];
+            //Note double space after definition!
+            $strSmallReplace    = '$small-breakpoint:  em-calc('.$intSmallRange.')';
+            $strSmallNew        = '$small-breakpoint:  em-calc('.$arrMediumCustom['value'].')';
+            $strContent = str_replace($strSmallReplace, $strSmallNew, $strContent);
         }
         if(!empty($arrLargeCustom['value']))
         {
-            $blnReplace = true;
-            //Set the medium max value to the large breakpoint
-            $arrMediumRange[1] = $arrLargeCustom['value'] . $arrLargeCustom['unit'];
-            //Now set the large min value
-            $fltAdd = $arrLargeCustom['unit']=='px' ? '1' : '0.063';
-            $arrLargeRange[0] = ($arrLargeCustom['value'] + $fltAdd) . $arrLargeCustom['unit'];
+            $intMediumRange     = $arrRanges['medium'];
+            //Note single space after definition!
+            $strMediumReplace   = '$medium-breakpoint: em-calc('.$intMediumRange.')';
+            $strMediumNew       = '$medium-breakpoint: em-calc('.$arrLargeCustom['value'].')';
+            $strContent = str_replace($strMediumReplace, $strMediumNew, $strContent);
         }
         if(!empty($arrXLargeCustom['value']))
         {
-            $blnReplace = true;
-            //Set the large max value to the xlarge breakpoint
-            $arrLargeRange[1] = $arrXLargeCustom['value'] . $arrXLargeCustom['unit'];
-            //Now set the large min value
-            $fltAdd = $arrXLargeCustom['unit']=='px' ? '1' : '0.063';
-            $arrXLargeRange[0] = ($arrXLargeCustom['value'] + $fltAdd) . $arrXLargeCustom['unit'];
+            $intLargeRange      = $arrRanges['large'];
+            //Note double space after definition!
+            $strLargeReplace    = '$large-breakpoint:  em-calc('.$intLargeRange.')';
+            $strLargeNew        = '$large-breakpoint:  em-calc('.$arrXLargeCustom['value'].')';
+            $strContent = str_replace($strLargeReplace, $strLargeNew, $strContent);
         }
         if(!empty($arrXXLargeCustom['value']))
         {
-            $blnReplace = true;
-            //Set the xlarge max value to the xxlarge breakpoint
-            $arrXLargeRange[1] = $arrXXLargeCustom['value'] . $arrXXLargeCustom['unit'];
-            //Now set the large min value
-            $fltAdd = $arrXXLargeCustom['unit']=='px' ? '1' : '0.063';
-            $arrXXLargeRange[0] = ($arrXXLargeCustom['value'] + $fltAdd) . $arrXXLargeCustom['unit'];
-        }
-        
-        //Replace the values if necessary
-        if($blnReplace)
-        {           
-            //Replace content
-            $strSmallNew    = '(' . implode(', ', $arrSmallRange) . ')';
-            $strMediumNew   = '(' . implode(', ', $arrMediumRange) . ')';
-            $strLargeNew    = '(' . implode(', ', $arrLargeRange) . ')';
-            $strXLargeNew   = '(' . implode(', ', $arrXLargeRange) . ')';
-            $strXXLargeNew  = '(' . implode(', ', $arrXXLargeRange) . ')';
-            
-            $objFile = new \File($strPath . '/foundation/components/_global.scss');
-            $strContent = $objFile->getContent();
-            
-            $strContent = str_replace($strSmallReplace, $strSmallNew, $strContent);
-            $strContent = str_replace($strMediumReplace, $strMediumNew, $strContent);
-            $strContent = str_replace($strLargeReplace, $strLargeNew, $strContent);
+            $intXLargeRange     = $arrRanges['xlarge'];
+            //Note single space after definition!
+            $strXLargeReplace   = '$xlarge-breakpoint: em-calc('.$intXLargeRange.')';
+            $strXLargeNew       = '$xlarge-breakpoint: em-calc('.$arrXXLargeCustom['value'].')';
             $strContent = str_replace($strXLargeReplace, $strXLargeNew, $strContent);
-            $strContent = str_replace($strXXLargeReplace, $strXXLargeNew, $strContent);
-            
-            $objFile->write($strContent);
-            $objFile->close();
         }
         
+        $objFile->write($strContent);
+        $objFile->close();
     }
     
     /**

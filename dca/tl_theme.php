@@ -37,7 +37,7 @@ $GLOBALS['TL_DCA']['tl_theme']['fields']['foundation_break_medium'] = array
 (
 	'label'                   => &$GLOBALS['TL_LANG']['tl_theme']['foundation_break_medium'],
 	'inputType'               => 'inputUnit',
-	'options'                 => array('px', 'em'),
+	'options'                 => array('px'),
 	'eval'                    => array('includeBlankOption'=>true, 'rgxp'=>'digit_normal_inherit', 'maxlength' => 20, 'tl_class'=>'w50'),
 	'sql'                     => "varchar(64) NOT NULL default ''"
 );
