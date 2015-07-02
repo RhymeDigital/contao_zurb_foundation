@@ -14,6 +14,7 @@
 /**
  * Fields
  */
+$GLOBALS['TL_LANG']['tl_theme']['foundation_components']   = array('Include components', 'Check the boxes of the foundation components you would like to include with this theme.'); 
 $GLOBALS['TL_LANG']['tl_theme']['foundation_break_medium'] 	= array('Medium breakpoint', 'Enter the medium breakpoint. Note that this will be used for the max setting for the small breakpoint, and the medium breakpoint will be slightly larger (0.063em larger assuming a 16px base).'); 
 $GLOBALS['TL_LANG']['tl_theme']['foundation_break_large'] 	= array('Large breakpoint', 'Enter the large breakpoint. Note that this will be used for the max setting for the medium breakpoint, and the large breakpoint will be slightly larger (0.063em larger assuming a 16px base).'); 
 $GLOBALS['TL_LANG']['tl_theme']['foundation_break_xlarge']  = array('X-large breakpoint', 'Enter the x-large breakpoint. Note that this will be used for the max setting for the large breakpoint, and the x-large breakpoint will be slightly larger (0.063em larger assuming a 16px base).');

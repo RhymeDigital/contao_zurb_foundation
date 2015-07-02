@@ -13,7 +13,7 @@
 /**
  * Foundation version
  */
-define('FOUNDATION', '5.5.0');
+define('FOUNDATION', '5.5.2');
  
 
 /**
@@ -52,7 +52,7 @@ array_insert($GLOBALS['FE_MOD']['navigationMenu'], 8, array
 (
 	'foundationnav_topbar' => '\Rhyme\Module\Foundation\NavTopBar',
 	'foundation_tabbar' => '\Rhyme\Module\Foundation\TabBar',
-	'foundation_iconbar'    => '\HBAgency\Module\Foundation\IconBar',   
+	'foundation_iconbar'    => '\Rhyme\Module\Foundation\IconBar',   
 ));
 
 
@@ -72,6 +72,7 @@ array_insert($GLOBALS['TL_FFL'], 20, array
  * Hooks
  */
 $GLOBALS['TL_HOOKS']['parseTemplate'][] 		= array('Rhyme\Hooks\ParseTemplate\Foundation', 'run');
+$GLOBALS['TL_HOOKS']['loadFormField'][]         = array('Rhyme\Hooks\LoadFormField\Foundation', 'run');
 $GLOBALS['TL_HOOKS']['getPageLayout'][] 		= array('Rhyme\Hooks\GetPageLayout\Foundation', 'run');
 $GLOBALS['TL_HOOKS']['getCombinedFile'][] 		= array('Rhyme\Hooks\GetCombinedFile\Foundation', 'run');
 //$GLOBALS['TL_HOOKS']['getAttributesFromDca'][]  = array('Rhyme\Hooks\StoreTabTitles\Foundation', 'run');
@@ -125,6 +126,51 @@ $GLOBALS['FOUNDATION_JS'] = array
 	'foundationtooltip'			=> 'composer/vendor/zurb/foundation/js/foundation/foundation.tooltip.js',
 	'foundationtopbar'			=> 'composer/vendor/zurb/foundation/js/foundation/foundation.topbar.js',
 );
+
+/**
+ * Foundation Components array for combiner
+ */
+$GLOBALS['FOUNDATION_COMPONENTS'] = array
+(
+	'accordion',
+	'alert-boxes',
+	'block_grid',
+	'breadcrumbs',
+	'button-groups',
+	'buttons',
+	'clearing',
+	'dropdown-buttons',
+	'dropdown',
+	'flex-video',
+	'forms',
+	'grid',
+	'icon-bar',
+	'inline-lists',
+	'joyride',
+	'keystrokes',
+	'labels',
+	'magellan',
+	'offcanvas',
+	'orbit',
+	'pagination',
+	'panels',
+	'pricing-tables',
+	'progress-bars',
+	'range-slider',
+	'reveal',
+	'side-nav',
+	'split-buttons',
+	'sub-nav',
+	'switches',
+	'tables',
+	'tabs',
+	'thumbs',
+	'tooltips',
+	'top-bar',
+	'type',
+	'visibility',
+);
+
 
 /**
  * Purge jobs

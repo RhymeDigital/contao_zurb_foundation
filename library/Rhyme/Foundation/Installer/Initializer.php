@@ -32,34 +32,51 @@ class Initializer extends \Controller
     	$arrSet = array('value'=> '', 'unit'=> '');
     	$objDB = \Database::getInstance();
     	
-    	if($objDB->fieldExists('foundation_break_medium', 'tl_theme'))
+    	if(!$objDB->fieldExists('foundation_break_medium', 'tl_theme'))
     	{
-    		$arrMSet = array('foundation_break_medium' => $arrSet);
-			$objDB->prepare("UPDATE tl_theme %s WHERE !(foundation_break_medium > '')")
-				  ->set($arrMSet)
-				  ->executeUncached();
+    		$objDB->query("ALTER TABLE tl_theme ADD foundation_break_medium varchar(64) NOT NULL default ''");
 		}
-		if($objDB->fieldExists('foundation_break_large', 'tl_theme'))
+		if(!$objDB->fieldExists('foundation_break_large', 'tl_theme'))
     	{
-    		$arrLSet = array('foundation_break_large' => $arrSet);
-			$objDB->prepare("UPDATE tl_theme %s WHERE !(foundation_break_large > '')")
-				  ->set($arrLSet)
-				  ->executeUncached();
-		}
-		if($objDB->fieldExists('foundation_break_xlarge', 'tl_theme'))
+        	$objDB->query("ALTER TABLE tl_theme ADD foundation_break_large varchar(64) NOT NULL default ''");
+        }
+        if(!$objDB->fieldExists('foundation_break_xlarge', 'tl_theme'))
     	{
-    		$arrXLSet = array('foundation_break_xlarge' => $arrSet);
-			$objDB->prepare("UPDATE tl_theme %s WHERE !(foundation_break_xlarge > '')")
-				  ->set($arrXLSet)
-				  ->executeUncached();
-		}
-		if($objDB->fieldExists('foundation_break_xxlarge', 'tl_theme'))
+        	$objDB->query("ALTER TABLE tl_theme ADD foundation_break_xlarge varchar(64) NOT NULL default ''");
+        }
+        if(!$objDB->fieldExists('foundation_break_xxlarge', 'tl_theme'))
     	{
-    		$arrXXLSet = array('foundation_break_xxlarge' => $arrSet);
-			$objDB->prepare("UPDATE tl_theme %s WHERE !(foundation_break_xxlarge > '')")
-				  ->set($arrXXLSet)
-				  ->executeUncached();
-		}
+        	$objDB->query("ALTER TABLE tl_theme ADD foundation_break_xxlarge varchar(64) NOT NULL default ''");
+        }
+        if(!$objDB->fieldExists('foundation_components', 'tl_theme'))
+    	{
+        	$objDB->query("ALTER TABLE tl_theme ADD foundation_components blob NULL");
+        }
+		
+		$arrMSet = array('foundation_break_medium' => $arrSet);
+        $objDB->prepare("UPDATE tl_theme %s WHERE !(foundation_break_medium > '')")
+              ->set($arrMSet)
+              ->executeUncached();
+		
+		$arrLSet = array('foundation_break_large' => $arrSet);
+		$objDB->prepare("UPDATE tl_theme %s WHERE !(foundation_break_large > '')")
+			  ->set($arrLSet)
+			  ->executeUncached();
+
+		$arrXLSet = array('foundation_break_xlarge' => $arrSet);
+		$objDB->prepare("UPDATE tl_theme %s WHERE !(foundation_break_xlarge > '')")
+			  ->set($arrXLSet)
+			  ->executeUncached();
+
+		$arrXXLSet = array('foundation_break_xxlarge' => $arrSet);
+		$objDB->prepare("UPDATE tl_theme %s WHERE !(foundation_break_xxlarge > '')")
+			  ->set($arrXXLSet)
+			  ->executeUncached();
+			  
+        $arrComponents = $GLOBALS['FOUNDATION_COMPONENTS'];
+		$objDB->prepare("UPDATE tl_theme %s WHERE foundation_components IS NULL")
+			  ->set($arrComponents)
+			  ->executeUncached();
 
     }
 
