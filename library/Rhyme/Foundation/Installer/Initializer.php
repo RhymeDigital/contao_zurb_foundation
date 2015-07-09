@@ -73,7 +73,7 @@ class Initializer extends \Controller
 			  ->set($arrXXLSet)
 			  ->executeUncached();
 			  
-        $arrComponents = $GLOBALS['FOUNDATION_COMPONENTS'];
+        $arrComponents = array('foundation_components' => $GLOBALS['FOUNDATION_COMPONENTS']);
 		$objDB->prepare("UPDATE tl_theme %s WHERE foundation_components IS NULL")
 			  ->set($arrComponents)
 			  ->executeUncached();
