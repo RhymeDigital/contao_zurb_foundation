@@ -140,7 +140,7 @@ class SCSS extends \Controller
     protected static function includeComponents($objConfig, $strPath)
     { 
         $arrAllComponents       = $GLOBALS['FOUNDATION_COMPONENTS'];
-        $arrComponentsToInclude = deserialize($objConfig->foundation_components);
+        $arrComponentsToInclude = (array) deserialize($objConfig->foundation_components);
         
         $objFile = new \File($strPath . '/foundation.scss');
         $strContent = $objFile->getContent();
