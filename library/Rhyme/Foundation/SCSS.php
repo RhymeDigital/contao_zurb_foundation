@@ -12,6 +12,8 @@
  
  namespace Rhyme\Foundation;
  
+ use Leafo\ScssPhp\Compiler;
+ 
 /**
  * Class SCSS
  *
@@ -77,9 +79,19 @@ class SCSS extends \Controller
             $strNormalizeCSS = '';
             
             //Create the SCSS compiler
-            $objCompiler = new \scssc();
-            $objCompiler->setImportPaths(TL_ROOT . '/' . $strCopyPath);
-            $objCompiler->setFormatter((\Config::get('debugMode') ? 'scss_formatter' : 'scss_formatter_compressed'));
+            if(class_exists('scssc'))
+            {
+                $objCompiler = new \scssc();
+                $objCompiler->setImportPaths(TL_ROOT . '/' . $strCopyPath);
+                $objCompiler->setFormatter((\Config::get('debugMode') ? 'scss_formatter' : 'scss_formatter_compressed'));
+            }
+            else
+            {
+                $objCompiler = new Compiler();
+                $objCompiler->setImportPaths(TL_ROOT . '/' . $strCopyPath);
+                $objCompiler->setFormatter((\Config::get('debugMode') ? 'Leafo\ScssPhp\Formatter\Expanded' : 'Leafo\ScssPhp\Formatter\Compressed'));
+            }
+            
             $strFoundationContent = file_get_contents(TL_ROOT . '/' . $strCopyPath . '/foundation.scss');
             $strNormalizeContent = file_get_contents(TL_ROOT . '/' . $strCopyPath . '/normalize.scss');
             
