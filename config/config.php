@@ -134,7 +134,7 @@ $GLOBALS['FOUNDATION_COMPONENTS'] = array
 (
 	'accordion',
 	'alert-boxes',
-	'block_grid',
+	'block-grid',
 	'breadcrumbs',
 	'button-groups',
 	'buttons',
