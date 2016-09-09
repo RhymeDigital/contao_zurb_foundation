@@ -14,16 +14,19 @@
 /**
  * Register PSR-0 namespace
  */
-NamespaceClassLoader::add('Rhyme', 'system/modules/zurb_foundation/library');
-
-
-/**
- * Register classes outside the namespace folder
- */
-NamespaceClassLoader::addClassMap(array
-(
+if (class_exists('NamespaceClassLoader')) {
     
-));
+    NamespaceClassLoader::add('Rhyme', 'system/modules/zurb_foundation/library');
+
+    /**
+     * Register classes outside the namespace folder
+     */
+    NamespaceClassLoader::addClassMap(array
+    (
+        
+    ));
+
+}
 
 /**
  * Register the templates
