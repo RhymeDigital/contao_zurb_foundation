@@ -3,10 +3,10 @@
     float: left;
     height: 92px;
 }
-.w25 .tl_select {
+.multicolumnwizard .w25 .tl_select {
     width: 150px;
 }
-.w20 .tl_select {
+.multicolumnwizard .w20 .tl_select {
     width: 100px;
 }
 .foundation_settings thead td, .foundation_settings .w20 {
@@ -15,7 +15,7 @@
     height:auto;
     padding-right:25px;
 }
-.tl_select_small .tl_select {
+.multicolumnwizard .tl_select_small .tl_select {
     width: 60px;
 }
 .zf_container .multicolumnwizard table {
