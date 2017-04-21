@@ -2,8 +2,8 @@
     "name": "rhymedigital/contao_zurb_foundation",
     "description": "A set of tools for Contao Open Source CMS to utilize the Foundation responsive framework",
     "keywords": [
-    	"zurb", 
-    	"foundation"
+        "zurb",
+        "foundation"
     ],
     "type": "contao-module",
     "license": "LGPL-3.0+",
@@ -14,36 +14,31 @@
         }
     ],
     "require": {
-        "contao/core-bundle": "~3.5 || ~4.1",
-        "contao-community-alliance/composer-plugin": "~2.4 || ~3.0",
-        "codefog/contao-haste": ">=4.0.0,<5.0-dev",
-        "menatwork/contao-multicolumnwizard": "~3.3",
-        "zurb/foundation": ">=5.5.2,<5.6-dev",
-        "jalle19/php-yui-compressor": ">=dev-master",
-        "tedivm/jshrink": ">=1.0.0,<1.1-dev",
-        "components/jquery": ">=2.1.0,<2.2-dev",
-        "components/modernizr": ">=2.6.2,<2.7-dev"
+        "php":">=5.4",
+        "contao/core-bundle": "^4.3",
+        "codefog/contao-haste": "^4.0",
+        "menatwork/contao-multicolumnwizard": "^3.3",
+        "zurb/foundation": "^6.3",
+        "jalle19/php-yui-compressor": "^1.0",
+        "tedivm/jshrink": "^1.1",
+        "components/jquery": "^3.2",
+        "components/modernizr": "^2.7"
+    },
+    "require-dev": {
+        "contao/manager-plugin": "^2.0"
     },
     "autoload": {
         "psr-0": {
-            "Rhyme\\": [
-                "library/"
-            ]
+            "Rhyme\\ContaoZurbFoundationBundle\\": ""
         }
     },
     "extra": {
-        "contao": {
-            "sources": {
-                "": "system/modules/zurb_foundation"
-            }
-        }
+        "branch-alias": {
+            "dev-develop": "1.0.x-dev"
+        },
+        "contao-manager-plugin": "Rhyme\\ContaoZurbFoundationBundle\\ContaoManager\\Plugin"
     },
     "replace": {
         "hb-agency/contao_zurb_foundation":"self.version"
-    },
-    "minimum-stability": "dev",
-    "prefer-stable": true,
-    "config": {
-        "preferred-install": "dist"
     }
 }
