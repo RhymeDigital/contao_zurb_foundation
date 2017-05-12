@@ -3,7 +3,7 @@
 /**
  * Zurb Foundation integration for Contao Open Source CMS
  *
- * Copyright (C) 2015 Rhyme Digital
+ * Copyright (C) 2017 Rhyme Digital
  *
  * @package    Zurb_Foundation
  * @link       http://rhyme.digital
@@ -25,10 +25,10 @@ $GLOBALS['TL_LANG']['FOUNDATION'] = array
 	(
 		'BREAKPOINT' => array
 		(
-			'small'		=> '640',
-			'medium'	=> '1024',
-			'large'		=> '1440',
-			'xlarge'	=> '1920',
+			'medium'		=> '640',
+			'large'	        => '1024',
+			'xlarge'		=> '1200',
+			'xxlarge'	    => '1440',
 		),
 	),
     /**

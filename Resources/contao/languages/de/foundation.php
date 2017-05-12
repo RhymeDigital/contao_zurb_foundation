@@ -25,10 +25,10 @@ $GLOBALS['TL_LANG']['FOUNDATION'] = array
 	(
 		'BREAKPOINT' => array
 		(
-			'small'		=> '640',
-			'medium'	=> '1024',
-			'large'		=> '1440',
-			'xlarge'	=> '1920',
+            'medium'		=> '640',
+            'large'	        => '1024',
+            'xlarge'		=> '1200',
+            'xxlarge'	    => '1440',
 		),
 	),
     /**
