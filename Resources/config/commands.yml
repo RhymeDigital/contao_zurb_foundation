@@ -1,0 +1,5 @@
+services:
+    rhymecontaozurbfoundation.command.symlinks:
+        class: Rhyme\ContaoZurbFoundationBundle\Command\SymlinksCommand
+        tags:
+            -  { name: console.command }

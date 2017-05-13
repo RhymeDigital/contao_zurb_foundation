@@ -38,6 +38,14 @@
         },
         "contao-manager-plugin": "Rhyme\\ContaoZurbFoundationBundle\\ContaoManager\\Plugin"
     },
+    "scripts": {
+        "post-install-cmd": [
+            "Rhyme\\ContaoZurbFoundationBundle\\Composer\\ScriptHandler::generateSymlinks"
+        ],
+        "post-update-cmd": [
+            "Rhyme\\ContaoZurbFoundationBundle\\Composer\\ScriptHandler::generateSymlinks"
+        ]
+    },
     "replace": {
         "hb-agency/contao_zurb_foundation":"self.version"
     }
