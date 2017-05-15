@@ -86,9 +86,9 @@ class SymlinksCommand extends ContaoSymlinksCommand
     private function generateSymlinks()
     {
         // Symlink the assets and themes directory
-        $this->symlink('vendor/components/modernizr', $this->webDir.'/vendor/components/modernizr');
-        $this->symlink('vendor/components/jquery', $this->webDir.'/vendor/components/jquery');
-        $this->symlink('vendor/zurb/foundation', $this->webDir.'/vendor/zurb/foundation');
+        $this->symlink('vendor/components/modernizr', 'assets/foundation/components/modernizr');
+        $this->symlink('vendor/components/jquery', 'assets/foundation/components/jquery');
+        $this->symlink('vendor/zurb/foundation', 'assets/foundation/zurb/foundation');
     }
 
     /**

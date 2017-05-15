@@ -16,4 +16,5 @@ use Symfony\Component\HttpKernel\Bundle\Bundle;
 
 class RhymeContaoZurbFoundationBundle extends Bundle
 {
+
 }
