@@ -5,14 +5,14 @@
 	<?php if ($this->tabs) : ?>
 		<?php $titles = $rows = ''; ?>
 		<?php foreach($this->tabs as $i => $tab) : ?>
-			<?php $titles .= '<li class="tab-title' .(0==$i?' active':''). '"><a href="#panel' .$this->id. '-' .$i. '">' .$tab['title'] . '</a></li>' . "\n"; ?>
-			<?php $rows .= '<div class="content' .(0==$i?' active':''). '" id="panel' .$this->id. '-' .$i. '">' .$tab['content'] . '</div>' . "\n"; ?>
+			<?php $titles .= '<li class="tabs-title' .(0==$i?' is-active':''). '"><a href="#panel' .$this->id. '-' .$i. '">' .$tab['title'] . '</a></li>' . "\n"; ?>
+			<?php $rows .= '<div class="tabs-panel' .(0==$i?' is-active':''). '" id="panel' .$this->id. '-' .$i. '">' .$tab['content'] . '</div>' . "\n"; ?>
 		<?php endforeach; ?>
 		
-		<ul class="tabs<?php echo ' '.$this->foundation_tabs_direction; ?>" data-tab>
+		<ul class="tabs<?php echo ' '.$this->foundation_tabs_direction; ?>" data-tabs id="tabs<?= $this->id; ?>">
 			<?php echo $titles; ?>
 		</ul>
-		<div class="tabs-content">
+		<div class="tabs-content" data-tabs-content="tabs<?= $this->id; ?>">
 			<?php echo $rows; ?>
 		</div>
 		

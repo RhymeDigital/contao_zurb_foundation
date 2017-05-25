@@ -40,7 +40,6 @@ class Tabs extends Zurb_Foundation
 	{
 		if ($this->foundation_tabs_content == '')
 		{
-			$this->Template->headline = '';
 			$this->headline = '';
 			$this->hl = '';
 			return '';
@@ -56,7 +55,7 @@ class Tabs extends Zurb_Foundation
 	{
 		// Compile article element
 		$arrTabs = deserialize($this->foundation_tabs_content, true);
-		
+
 		if (!empty($arrTabs))
 		{
 			foreach ($arrTabs as &$arrItem)
@@ -67,7 +66,7 @@ class Tabs extends Zurb_Foundation
 				}
 			}
 		}
-		
+
 		$this->Template->tabs = $arrTabs;
 		$this->Template->foundation_tabs_direction = $this->foundation_tabs_direction;
 
