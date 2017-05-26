@@ -45,31 +45,30 @@ class Foundation extends Controller
 	 */
 	public function run(PageModel $objPage, LayoutModel &$objLayout, PageRegular $objPageRegular)
 	{
-    	//Check for Debug Mode
-    	if(Config::get('debugMode'))
-    	{
-        	$arrStaticScripts = array();
-        	foreach($GLOBALS['FOUNDATION_JS'] as $script)
-        	{
-            	$arrStaticScripts[] = $script . '|static';
-        	}
-        	
-    		array_insert($GLOBALS['TL_JAVASCRIPT'], 0, $arrStaticScripts);
-    	}
-    	else
-    	{    	
-    		//Load up our Required Foundation JS into a Combiner
-    		$objCombiner = new Combiner();
-    		
-    		foreach($GLOBALS['FOUNDATION_JS'] as $strFile)
-    		{
-    			$objCombiner->add($strFile);
-    		}
-    		
-    	    array_insert($GLOBALS['TL_JAVASCRIPT'], 0, array
-            (
-            	$objCombiner->getCombinedFile() . "|static"
-            ));
+
+        if(!empty($GLOBALS['FOUNDATION_JS']))
+        {
+            //Check for Debug Mode
+            if (Config::get('debugMode')) {
+                $arrStaticScripts = array();
+                foreach ($GLOBALS['FOUNDATION_JS'] as $script) {
+                    $arrStaticScripts[] = $script . '|static';
+                }
+
+                array_insert($GLOBALS['TL_JAVASCRIPT'], 0, $arrStaticScripts);
+            } else {
+                //Load up our Required Foundation JS into a Combiner
+                $objCombiner = new Combiner();
+
+                foreach ($GLOBALS['FOUNDATION_JS'] as $strFile) {
+                    $objCombiner->add($strFile);
+                }
+
+                array_insert($GLOBALS['TL_JAVASCRIPT'], 0, array
+                (
+                    $objCombiner->getCombinedFile() . "|static"
+                ));
+            }
         }
         
 		//Load in Foundation CSS by Theme
