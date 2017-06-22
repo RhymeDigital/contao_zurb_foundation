@@ -146,7 +146,7 @@ $GLOBALS['TL_DCA']['tl_content']['fields']['foundation_equalize'] = array
     'label'                   => &$GLOBALS['TL_LANG']['tl_content']['foundation_equalize'],
 	'exclude'       	      => true,
 	'inputType'     	      => 'checkbox',
-	'eval'                    => array('tl_class'=> 'w50'),
+	'eval'                    => array('tl_class'=> 'clr', 'submitOnChange' => false),
 	'sql'                     => "char(1) NOT NULL default ''",
 );
 
@@ -157,7 +157,7 @@ $GLOBALS['TL_DCA']['tl_content']['fields']['foundation_size_small'] = array
 	'inputType'               => 'imageSize',
 	'options'                 => $GLOBALS['TL_CROP'],
 	'reference'               => &$GLOBALS['TL_LANG']['MSC'],
-	'eval'                    => array('rgxp'=>'digit', 'nospace'=>true, 'helpwizard'=>true, 'tl_class'=>'w50'),
+	'eval'                    => array('rgxp'=>'digit', 'nospace'=>true, 'helpwizard'=>true, 'tl_class'=>'clr'),
 	'sql'                     => "varchar(64) NOT NULL default ''"
 );
 
@@ -168,7 +168,7 @@ $GLOBALS['TL_DCA']['tl_content']['fields']['foundation_size_medium'] = array
 	'inputType'               => 'imageSize',
 	'options'                 => $GLOBALS['TL_CROP'],
 	'reference'               => &$GLOBALS['TL_LANG']['MSC'],
-	'eval'                    => array('rgxp'=>'digit', 'nospace'=>true, 'helpwizard'=>true, 'tl_class'=>'w50'),
+	'eval'                    => array('rgxp'=>'digit', 'nospace'=>true, 'helpwizard'=>true, 'tl_class'=>'clr'),
 	'sql'                     => "varchar(64) NOT NULL default ''"
 );
 
@@ -179,7 +179,7 @@ $GLOBALS['TL_DCA']['tl_content']['fields']['foundation_size_large'] = array
 	'inputType'               => 'imageSize',
 	'options'                 => $GLOBALS['TL_CROP'],
 	'reference'               => &$GLOBALS['TL_LANG']['MSC'],
-	'eval'                    => array('rgxp'=>'digit', 'nospace'=>true, 'helpwizard'=>true, 'tl_class'=>'w50'),
+	'eval'                    => array('rgxp'=>'digit', 'nospace'=>true, 'helpwizard'=>true, 'tl_class'=>'clr'),
 	'sql'                     => "varchar(64) NOT NULL default ''"
 );
 
@@ -190,7 +190,7 @@ $GLOBALS['TL_DCA']['tl_content']['fields']['foundation_size_xlarge'] = array
 	'inputType'               => 'imageSize',
 	'options'                 => $GLOBALS['TL_CROP'],
 	'reference'               => &$GLOBALS['TL_LANG']['MSC'],
-	'eval'                    => array('rgxp'=>'digit', 'nospace'=>true, 'helpwizard'=>true, 'tl_class'=>'w50'),
+	'eval'                    => array('rgxp'=>'digit', 'nospace'=>true, 'helpwizard'=>true, 'tl_class'=>'clr'),
 	'sql'                     => "varchar(64) NOT NULL default ''"
 );
 
@@ -201,7 +201,7 @@ $GLOBALS['TL_DCA']['tl_content']['fields']['foundation_size_xxlarge'] = array
 	'inputType'               => 'imageSize',
 	'options'                 => $GLOBALS['TL_CROP'],
 	'reference'               => &$GLOBALS['TL_LANG']['MSC'],
-	'eval'                    => array('rgxp'=>'digit', 'nospace'=>true, 'helpwizard'=>true, 'tl_class'=>'w50'),
+	'eval'                    => array('rgxp'=>'digit', 'nospace'=>true, 'helpwizard'=>true, 'tl_class'=>'clr'),
 	'sql'                     => "varchar(64) NOT NULL default ''"
 );
 
@@ -214,7 +214,7 @@ $GLOBALS['TL_DCA']['tl_content']['fields']['foundation_visibility'] = array
     'label'                   => &$GLOBALS['TL_LANG']['tl_content']['foundation_visibility'],
     'exclude'                 => true,
     'inputType'               => 'checkbox',
-	'eval'                    => array('submitOnChange'=>true),
+	'eval'                    => array('submitOnChange'=>true, 'tl_class'=>'clr'),
 	'sql'                     => "char(1) NOT NULL default ''"
 );
 
@@ -223,7 +223,7 @@ $GLOBALS['TL_DCA']['tl_content']['fields']['foundation_grid'] = array
     'label'                   => &$GLOBALS['TL_LANG']['tl_content']['foundation_grid'],
     'exclude'                 => true,
     'inputType'               => 'checkbox',
-	'eval'                    => array('submitOnChange'=>true),
+	'eval'                    => array('submitOnChange'=>true, 'tl_class'=>'clr'),
 	'sql'                     => "char(1) NOT NULL default ''"
 );
 
@@ -232,16 +232,7 @@ $GLOBALS['TL_DCA']['tl_content']['fields']['foundation_block_grid'] = array
     'label'                   => &$GLOBALS['TL_LANG']['tl_content']['foundation_block_grid'],
     'exclude'                 => true,
     'inputType'               => 'checkbox',
-	'eval'                    => array('submitOnChange'=>true),
-	'sql'                     => "char(1) NOT NULL default ''"
-);
-
-$GLOBALS['TL_DCA']['tl_content']['fields']['foundation_equalize'] = array
-(
-    'label'                   => &$GLOBALS['TL_LANG']['tl_content']['foundation_equalize'],
-    'exclude'                 => true,
-    'inputType'               => 'checkbox',
-	'eval'                    => array('submitOnChange'=>true),
+	'eval'                    => array('submitOnChange'=>true, 'tl_class'=>'clr'),
 	'sql'                     => "char(1) NOT NULL default ''"
 );
 
@@ -250,7 +241,7 @@ $GLOBALS['TL_DCA']['tl_content']['fields']['foundation_collapse'] = array
     'label'                   => &$GLOBALS['TL_LANG']['tl_content']['foundation_collapse'],
     'exclude'                 => true,
     'inputType'               => 'checkbox',
-	'eval'                    => array('submitOnChange'=>true),
+	'eval'                    => array('submitOnChange'=>true, 'tl_class'=>'clr'),
 	'sql'                     => "char(1) NOT NULL default ''"
 );
 
