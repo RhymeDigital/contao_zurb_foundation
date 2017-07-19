@@ -18,7 +18,7 @@
         "contao/core-bundle": "^4.3",
         "codefog/contao-haste": "^4.0",
         "menatwork/contao-multicolumnwizard": "^3.3",
-        "zurb/foundation": "^6.3",
+        "zurb/foundation": "^6.4",
         "jalle19/php-yui-compressor": "^1.0",
         "tedivm/jshrink": "^1.1",
         "components/jquery": "^3.2",

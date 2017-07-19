@@ -142,6 +142,7 @@ $GLOBALS['FOUNDATION_JS'] = array
 $GLOBALS['FOUNDATION_COMPONENTS'] = array
 (
     'grid/grid',
+    'xy-grid/xy-grid',
     'typography/typography',
     'forms/forms',
     'components/visibility',
@@ -178,6 +179,7 @@ $GLOBALS['FOUNDATION_COMPONENTS'] = array
     'components/top-bar',
     'components/thumbnail',
     'components/tooltip',
+    'prototype/prototype'
 );
 
 

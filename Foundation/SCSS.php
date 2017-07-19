@@ -164,6 +164,7 @@ class SCSS extends Controller
         $strImportFormat = "@import '%s';";
         $strIncludeFormat = "@include foundation-%s;";
         $blnFlexGrid = false;
+        $blnXYGrid = false;
 
         $strContent = "// Dependencies
 @import '../../../../vendor/zurb/foundation/_vendor/normalize-scss/sass/normalize';
@@ -198,6 +199,21 @@ class SCSS extends Controller
 
         $strContent .= "\n" . '@include foundation-global-styles;';
 
+        //The keys that will have -classes added
+        $arrAddClasses = array
+        (
+            'visibility',
+            'float',
+            'prototype'
+        );
+
+        $arrAddMenu = array
+        (
+            'drilldown',
+        );
+
+        $strMixins = '';
+
         //Loop through all components again to include their mixins
         foreach($arrAllComponents as $component)
         {
@@ -205,29 +221,46 @@ class SCSS extends Controller
             {
                 //Split by forward slash
                 $arrComponent = explode('/', $component);
-                if($arrComponent[1] ==='visibility' || $arrComponent[1] ==='float')
+                if(in_array($arrComponent[1], $arrAddClasses))
                 {
                     $arrComponent[1] .= '-classes';
+                }
+                if(in_array($arrComponent[1], $arrAddMenu))
+                {
+                    $arrComponent[1] .= '-menu';
                 }
                 if($arrComponent[1]==='flex-grid' || $arrComponent[1]==='flex')
                 {
                     $blnFlexGrid = true;
                 }
-                if($arrComponent[1]==='flex')
+                if($arrComponent[1]==='xy-grid')
+                {
+                    $blnXYGrid = true;
+                }
+                if($arrComponent[1]==='flex' || $arrComponent[1]==='xy-grid-classes')
                 {
                     continue;
                 }
                 $strInclude = sprintf($strIncludeFormat, $arrComponent[1]);
 
-                //Include second
-                $strContent .= "\n" . $strInclude;
+                //Include mixins
+                $strMixins .= "\n" . $strInclude;
             }
         }
 
-        if($blnFlexGrid)
+        //Flex and no XY Grid
+        if($blnFlexGrid && !$blnXYGrid)
         {
-            $strContent .= "\n" . '@include foundation-flex-classes;';
+            $strContent .= "\n" . '@include foundation-flex-grid;'; //Added first
+            $strMixins .= "\n" . '@include foundation-flex-classes;'; //Added to bottom
         }
+        elseif($blnXYGrid)
+        {
+            $strContent .= "\n" . '@include foundation-xy-grid-classes;';
+        }
+
+        //Add mixins after the grid stuff
+        $strContent .= "\n" . $strMixins;
 
         //Clean up blank lines
         $strContent = preg_replace("/(^[\r\n]*|[\r\n]+)[\s\t]*[\r\n]+/", "\n", $strContent);

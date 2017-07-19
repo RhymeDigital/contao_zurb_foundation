@@ -97,7 +97,7 @@ class Parser extends Controller
 	/**
 	 * Add block grid class settings
 	 * @param array
-	 * @return string
+	 * @return array
 	 */
 	public static function getBlockGridClasses($arrData)
 	{
