@@ -147,6 +147,7 @@ class SCSS extends Controller
     {
         self::includeComponents($objConfig, $strPath);
         self::changeBreakpoints($objConfig, $strPath);
+        self::normalizeBreadcrumbs($objConfig, $strPath);
     }
     
     /**
@@ -305,6 +306,20 @@ class SCSS extends Controller
         
         $objFile->write($strContent);
         $objFile->close();
+    }
+
+    /**
+     * Change the Foundation breakpoints
+     * @param \Contao\ThemeModel
+     * @param string
+     */
+    protected static function normalizeBreadcrumbs(ThemeModel $objConfig, $strPath)
+    {
+        $objFile = new File($strPath . '/settings/_settings.scss');
+        $strContent = $objFile->getContent();
+        $objFile->write(str_replace('\\\\', '//', $strContent));
+        $objFile->close();
+
     }
     
 }
