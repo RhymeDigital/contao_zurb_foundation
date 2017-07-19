@@ -185,6 +185,7 @@ class SCSS extends Controller
 // Global variables and styles
 @import 'global';
 ";
+        $strContent .= "\n" . '$str:"";  // Fix for missing var';
 
         //Loop through all components to make sure we only include ones we want
         foreach($arrAllComponents as $component)
