@@ -56,27 +56,27 @@ class Initializer extends \Controller
 		$arrMSet = array('foundation_break_medium' => $arrSet);
         $objDB->prepare("UPDATE tl_theme %s WHERE !(foundation_break_medium > '')")
               ->set($arrMSet)
-              ->executeUncached();
+              ->execute();
 		
 		$arrLSet = array('foundation_break_large' => $arrSet);
 		$objDB->prepare("UPDATE tl_theme %s WHERE !(foundation_break_large > '')")
 			  ->set($arrLSet)
-			  ->executeUncached();
+			  ->execute();
 
 		$arrXLSet = array('foundation_break_xlarge' => $arrSet);
 		$objDB->prepare("UPDATE tl_theme %s WHERE !(foundation_break_xlarge > '')")
 			  ->set($arrXLSet)
-			  ->executeUncached();
+			  ->execute();
 
 		$arrXXLSet = array('foundation_break_xxlarge' => $arrSet);
 		$objDB->prepare("UPDATE tl_theme %s WHERE !(foundation_break_xxlarge > '')")
 			  ->set($arrXXLSet)
-			  ->executeUncached();
+			  ->execute();
 			  
         $arrComponents = array('foundation_components' => $GLOBALS['FOUNDATION_COMPONENTS']);
 		$objDB->prepare("UPDATE tl_theme %s WHERE foundation_components IS NULL")
 			  ->set($arrComponents)
-			  ->executeUncached();
+			  ->execute();
 
     }
 
