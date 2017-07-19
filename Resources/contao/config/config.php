@@ -13,7 +13,7 @@
 /**
  * Foundation version
  */
-define('FOUNDATION', '6.3.1');
+define('FOUNDATION', '6.4.1');
  
 
 /**
