@@ -309,13 +309,18 @@ class SCSS extends Controller
     }
 
     /**
-     * Change the Foundation breakpoints
+     * Normalize the breadcrumbs separator (double backslash to fwdslashes) as that causes issues
      * @param \Contao\ThemeModel
      * @param string
      */
     protected static function normalizeBreadcrumbs(ThemeModel $objConfig, $strPath)
     {
         $objFile = new File($strPath . '/settings/_settings.scss');
+        $strContent = $objFile->getContent();
+        $objFile->write(str_replace('\\\\', '//', $strContent));
+        $objFile->close();
+
+        $objFile = new File($strPath . '/components/_breadcrumbs.scss');
         $strContent = $objFile->getContent();
         $objFile->write(str_replace('\\\\', '//', $strContent));
         $objFile->close();
