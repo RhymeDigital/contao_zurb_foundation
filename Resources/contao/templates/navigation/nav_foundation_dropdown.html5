@@ -1,5 +1,5 @@
-
-<ul class="<?php if(preg_match('/level_1/', $this->level)): echo 'right '; else : echo 'dropdown '; endif; echo $this->level; ?>">
+<?php $isFirstLevel = preg_match('/level_1/', $this->level); ?>
+<ul class="<?php if($isFirstLevel): echo 'dropdown menu '; else : echo 'menu '; endif; echo $this->level; ?>"<?php if($isFirstLevel): echo ' data-dropdown-menu '; endif; ?>>
   <?php foreach ($this->items as $item): ?>
   <?php if($item['isActive']): $item['class'] .= (!empty($item['class']) ? ' ' : '') . 'active'; endif; ?>
   <?php if(!empty($item['subitems'])): $item['class'] .= (!empty($item['class']) ? ' ' : '') . 'has-dropdown'; endif; ?>
