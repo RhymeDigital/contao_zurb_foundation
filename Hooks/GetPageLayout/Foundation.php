@@ -52,7 +52,7 @@ class Foundation extends Controller
             if (Config::get('debugMode')) {
                 $arrStaticScripts = array();
                 foreach ($GLOBALS['FOUNDATION_JS'] as $script) {
-                    $arrStaticScripts[] = $script . '|static';
+                    $arrStaticScripts[] = str_replace('.min', '', $script) . '|static';
                 }
 
                 array_insert($GLOBALS['TL_JAVASCRIPT'], 0, $arrStaticScripts);
