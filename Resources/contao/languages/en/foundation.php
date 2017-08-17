@@ -41,11 +41,11 @@ $GLOBALS['TL_LANG']['FOUNDATION'] = array
 
             'SHOW'    => array
             (
-                'show-for-small-up',
-                'show-for-medium-up',
-                'show-for-large-up',
-                'show-for-xlarge-up',
-                'show-for-xxlarge-up',
+                'show-for-small',
+                'show-for-medium',
+                'show-for-large',
+                'show-for-xlarge',
+                'show-for-xxlarge',
                 'show-for-small-only',
                 'show-for-medium-only',
                 'show-for-large-only',
@@ -54,11 +54,11 @@ $GLOBALS['TL_LANG']['FOUNDATION'] = array
             ),
             'HIDE'    => array
             (
-                'hide-for-small-up',
-                'hide-for-medium-up',
-                'hide-for-large-up',
-                'hide-for-xlarge-up',
-                'hide-for-xxlarge-up',
+                'hide-for-small',
+                'hide-for-medium',
+                'hide-for-large',
+                'hide-for-xlarge',
+                'hide-for-xxlarge',
                 'hide-for-small-only',
                 'hide-for-medium-only',
                 'hide-for-large-only',
