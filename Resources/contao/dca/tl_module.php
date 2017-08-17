@@ -37,8 +37,6 @@ $GLOBALS['TL_DCA']['tl_module']['palettes']['foundationnav_topbar'] = '{title_le
 
 $GLOBALS['TL_DCA']['tl_module']['palettes']['foundation_offcanvas'] = '{title_legend},name,headline,type;{foundationconfig_legend},foundation_offcanvas_side,foundation_modules;{template_legend:hide},customTpl;{protected_legend:hide},protected;{expert_legend:hide},guests,cssID,space';
 
-$GLOBALS['TL_DCA']['tl_module']['palettes']['foundation_tabbar'] = '{title_legend},name,type;{foundationconfig_legend},foundation_tabbar_title,foundation_tabbar_title_side;{template_legend:hide},customTpl;{protected_legend:hide},protected;{expert_legend:hide},guests,cssID,space';
-
 $GLOBALS['TL_DCA']['tl_module']['palettes']['foundation_iconbar'] = '{title_legend},name,type;{foundationconfig_legend},foundation_icons;{template_legend:hide},customTpl;{protected_legend:hide},protected;{expert_legend:hide},guests,cssID,space';
 
 

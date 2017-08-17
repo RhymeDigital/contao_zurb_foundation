@@ -13,7 +13,7 @@
 /**
  * Foundation version
  */
-define('FOUNDATION', '6.4.1');
+define('FOUNDATION', '6.4.3');
  
 
 /**
@@ -51,7 +51,6 @@ array_insert($GLOBALS['FE_MOD']['application'], 5, array
 array_insert($GLOBALS['FE_MOD']['navigationMenu'], 8, array
 (
 	'foundationnav_topbar' => '\Rhyme\ContaoZurbFoundationBundle\Module\Foundation\NavTopBar',
-	'foundation_tabbar' => '\Rhyme\ContaoZurbFoundationBundle\Module\Foundation\TabBar',
 	'foundation_iconbar'    => '\Rhyme\ContaoZurbFoundationBundle\Module\Foundation\IconBar',
 ));
 
