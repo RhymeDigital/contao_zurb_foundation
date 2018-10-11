@@ -40,7 +40,8 @@ $GLOBALS['TL_CTE']['foundation'] = array(
 
 array_insert($GLOBALS['FE_MOD']['application'], 4, array
 (
-	'foundation_offcanvas' => '\Rhyme\ContaoZurbFoundationBundle\Module\Foundation\OffCanvas'
+	'foundation_offcanvas' => '\Rhyme\ContaoZurbFoundationBundle\Module\Foundation\OffCanvas',
+    'foundation_offcanvas_trigger' => '\Rhyme\ContaoZurbFoundationBundle\Module\Foundation\OffCanvasTrigger',
 ));
 
 array_insert($GLOBALS['FE_MOD']['application'], 5, array
