@@ -37,6 +37,8 @@ $GLOBALS['TL_DCA']['tl_module']['palettes']['foundationnav_topbar'] = '{title_le
 
 $GLOBALS['TL_DCA']['tl_module']['palettes']['foundation_offcanvas'] = '{title_legend},name,headline,type;{foundationconfig_legend},foundation_offcanvas_side,foundation_modules;{template_legend:hide},customTpl;{protected_legend:hide},protected;{expert_legend:hide},guests,cssID,space';
 
+$GLOBALS['TL_DCA']['tl_module']['palettes']['foundation_offcanvas_trigger'] = '{title_legend},name,headline,type;{foundationconfig_legend},foundation_offcanvas_targetId,foundation_offcanvas_label;{template_legend:hide},customTpl;{protected_legend:hide},protected;{expert_legend:hide},guests,cssID,space';
+
 $GLOBALS['TL_DCA']['tl_module']['palettes']['foundation_iconbar'] = '{title_legend},name,type;{foundationconfig_legend},foundation_icons;{template_legend:hide},customTpl;{protected_legend:hide},protected;{expert_legend:hide},guests,cssID,space';
 
 
@@ -476,6 +478,26 @@ $GLOBALS['TL_DCA']['tl_module']['fields']['foundation_nav_showProtectedRight'] =
 	'inputType'               => 'checkbox',
 	'eval'                    => array('tl_class'=>'w50'),
 	'sql'                     => "char(1) NOT NULL default ''"
+);
+
+$GLOBALS['TL_DCA']['tl_module']['fields']['foundation_offcanvas_targetId'] = array
+(
+    'label'                   => &$GLOBALS['TL_LANG']['tl_module']['foundation_offcanvas_targetId'],
+    'exclude'                 => true,
+    'search'                  => true,
+    'inputType'               => 'text',
+    'eval'                    => array('maxlength'=>255, 'tl_class'=>'w50'),
+    'sql'                     => "varchar(255) NOT NULL default ''"
+);
+
+$GLOBALS['TL_DCA']['tl_module']['fields']['foundation_offcanvas_label'] = array
+(
+    'label'                   => &$GLOBALS['TL_LANG']['tl_module']['foundation_offcanvas_label'],
+    'exclude'                 => true,
+    'search'                  => true,
+    'inputType'               => 'text',
+    'eval'                    => array('maxlength'=>255, 'tl_class'=>'w50'),
+    'sql'                     => "varchar(255) NOT NULL default ''"
 );
 
 /**

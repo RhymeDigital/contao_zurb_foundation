@@ -62,6 +62,8 @@ $GLOBALS['TL_LANG']['tl_module']['foundation_button']                  = array('
 $GLOBALS['TL_LANG']['tl_module']['foundation_incarticle']              = array('Artikel einbeziehen','Artikel im Reveal Modal Fenster einbeziehen.');
 $GLOBALS['TL_LANG']['tl_module']['foundation_incmodule']               = array('Modul einbeziehen','Modul im Reveal Modal Fenster einbeziehen.');
 $GLOBALS['TL_LANG']['tl_module']['foundation_icons']                   = array('Icon Einstellungen','Fügen Sie ein Icons zur Icon Leiste hinzu. Wenn Sie eigene verwenden wollen, bevorzugen Sie SVG. Wenn Sie das Foundation Icons CSS inkludieren, können Sie ganz einfach die entsprechende Icon Klasse wählen, die Sie benötigen.');
+$GLOBALS['TL_LANG']['tl_module']['foundation_offcanvas_targetId']      = array('OffCanvas target ID', 'Enter the ID of the target offcanvas element.');
+$GLOBALS['TL_LANG']['tl_module']['foundation_offcanvas_label']         = array('OffCanvas label', 'Enter the label for the offcanvas trigger element.');
 
 /**
  * Reference
