@@ -94,8 +94,8 @@ $GLOBALS['TL_WRAPPERS']['stop'][] 	= 'foundation_orbitstop';
 if (TL_MODE == 'BE')
 {
     $GLOBALS['TL_CSS']['foundation'] = $GLOBALS['TL_CONFIG']['debugMode']
-            ? 'system/modules/zurb_foundation/assets/be_style.src.css'
-            : 'system/modules/zurb_foundation/assets/be_style.css';
+        ? 'bundles/rhymecontaozurbfoundation/css/be_style.src.css'
+        : 'bundles/rhymecontaozurbfoundation/css/be_style.css';
 }
 
 /**
