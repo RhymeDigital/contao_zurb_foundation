@@ -137,7 +137,7 @@ $GLOBALS['TL_DCA']['tl_content']['fields']['foundation_equalizer'] = array
     'label'                   => &$GLOBALS['TL_LANG']['tl_content']['foundation_equalizer'],
 	'exclude'       	      => true,
 	'inputType'     	      => 'checkbox',
-	'eval'                    => array('tl_class'=> 'w50'),
+	'eval'                    => array('tl_class'=> 'w50 clr'),
 	'sql'                     => "char(1) NOT NULL default ''",
 );
 

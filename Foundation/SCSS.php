@@ -206,7 +206,7 @@ class SCSS extends Controller
         (
             'visibility',
             'float',
-            'prototype'
+            //'prototype'
         );
 
         $arrAddMenu = array
@@ -258,7 +258,7 @@ class SCSS extends Controller
         }
         elseif($blnXYGrid)
         {
-            $strContent .= "\n" . '@include foundation-xy-grid-classes;';
+            //$strContent .= "\n" . '@include foundation-xy-grid-classes;';
         }
 
         //Add mixins after the grid stuff
@@ -289,14 +289,14 @@ class SCSS extends Controller
         $objFile = new File($strPath . '/settings/_settings.scss');
         $strContent = $objFile->getContent();
 
-        $arrRanges = array(
+        $arrBreakpoints = array(
             'medium'    => $arrMediumCustom['value'],
             'large'     => $arrLargeCustom['value'],
             'xlarge'    => $arrXLargeCustom['value'],
             'xxlarge'   => $arrXXLargeCustom['value'],
         );
 
-        foreach($arrRanges as $range => $value)
+        foreach($arrBreakpoints as $range => $value)
         {
             if(!empty($value)) {
                 $strReplace = $range . ': ' . $arrRanges[$range] . 'px,';
