@@ -168,9 +168,10 @@ class SCSS extends Controller
         $blnXYGrid = false;
 
         $strContent = "// Dependencies
-@import '../../../../vendor/zurb/foundation/_vendor/normalize-scss/sass/normalize';
+@import '../../../../vendor/zurb/foundation/scss/vendor/normalize';
 @import '../../../../vendor/zurb/foundation/_vendor/sassy-lists/stylesheets/helpers/missing-dependencies';
 @import '../../../../vendor/zurb/foundation/_vendor/sassy-lists/stylesheets/helpers/true';
+@import '../../../../vendor/zurb/foundation/_vendor/sassy-lists/stylesheets/functions/contain';
 @import '../../../../vendor/zurb/foundation/_vendor/sassy-lists/stylesheets/functions/purge';
 @import '../../../../vendor/zurb/foundation/_vendor/sassy-lists/stylesheets/functions/remove';
 @import '../../../../vendor/zurb/foundation/_vendor/sassy-lists/stylesheets/functions/replace';
@@ -258,7 +259,7 @@ class SCSS extends Controller
         }
         elseif($blnXYGrid)
         {
-            //$strContent .= "\n" . '@include foundation-xy-grid-classes;';
+            $strContent .= "\n" . '@include foundation-xy-grid-classes;';
         }
 
         //Add mixins after the grid stuff

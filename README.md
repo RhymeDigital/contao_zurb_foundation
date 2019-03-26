@@ -3,7 +3,7 @@ Contao Zurb Foundation Integration
 
 A set of tools for Contao Open Source CMS to utilize the Foundation responsive framework.
 
-The latest version is packaged as a Symfony Bundle and uses Foundation for Sites v6.3.x
+The latest version is packaged as a Symfony Bundle and uses Foundation for Sites v6.5.x
 
 You will need to add the following to your AppKernel.php file's `registerBundles` method, and making sure to use the `ContaoModuleBundle` class:
 
