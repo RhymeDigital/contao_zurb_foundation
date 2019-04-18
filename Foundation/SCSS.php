@@ -188,7 +188,6 @@ class SCSS extends Controller
 @import 'global';
 ";
         $strContent .= "\n" . '$str:"";  // Fix for missing var';
-        $strContent .= "\n" . '$gutters:$grid-margin-gutters;  // Fix for missing var';
 
         //Loop through all components to make sure we only include ones we want
         foreach($arrAllComponents as $component)
