@@ -13,4 +13,12 @@ new ContaoModuleBundle('multicolumnwizard', $this->getRootDir()),`
 Currently there is an issue with the leafo/scssphp package, which you can see the fix here:
 https://github.com/leafo/scssphp/issues/446
 
+To apply the ready-made patch, you need to add:
+
+`"extra": {
+       "enable-patching": true
+   }`
+
+to your `composer.json` file.
+
 Getting 404 errors with the Foundation javascript? You may need to run `php bin/console rhymecontaozurbfoundation:symlinks` from the console.

@@ -166,6 +166,7 @@ class SCSS extends Controller
         $strIncludeFormat = "@include foundation-%s;";
         $blnFlexGrid = false;
         $blnXYGrid = false;
+        $blnGrid = false;
 
         $strContent = "// Dependencies
 @import '../../../../vendor/zurb/foundation/scss/vendor/normalize';
@@ -177,16 +178,17 @@ class SCSS extends Controller
 @import '../../../../vendor/zurb/foundation/_vendor/sassy-lists/stylesheets/functions/replace';
 @import '../../../../vendor/zurb/foundation/_vendor/sassy-lists/stylesheets/functions/to-list';
 
-// Sass utilities
-@import 'util/util';
-
 // import and modify the default settings
 @import 'settings/settings';
+
+// Sass utilities
+@import 'util/util';
 
 // Global variables and styles
 @import 'global';
 ";
         $strContent .= "\n" . '$str:"";  // Fix for missing var';
+        $strContent .= "\n" . '$gutters:$grid-margin-gutters;  // Fix for missing var';
 
         //Loop through all components to make sure we only include ones we want
         foreach($arrAllComponents as $component)
@@ -205,9 +207,10 @@ class SCSS extends Controller
         //The keys that will have -classes added
         $arrAddClasses = array
         (
+            'xy-grid',
             'visibility',
             'float',
-            //'prototype'
+            'prototype'
         );
 
         $arrAddMenu = array
@@ -232,15 +235,19 @@ class SCSS extends Controller
                 {
                     $arrComponent[1] .= '-menu';
                 }
+                if($arrComponent[1]==='grid')
+                {
+                    $blnGrid = true;
+                }
                 if($arrComponent[1]==='flex-grid' || $arrComponent[1]==='flex')
                 {
                     $blnFlexGrid = true;
                 }
-                if($arrComponent[1]==='xy-grid')
+                if($arrComponent[1]==='xy-grid-classes')
                 {
                     $blnXYGrid = true;
                 }
-                if($arrComponent[1]==='flex' || $arrComponent[1]==='xy-grid-classes')
+                if($arrComponent[1]==='flex' || $arrComponent[1]==='xy-grid-classes' || $arrComponent[1]==='xy-grid')
                 {
                     continue;
                 }
@@ -252,12 +259,12 @@ class SCSS extends Controller
         }
 
         //Flex and no XY Grid
-        if($blnFlexGrid && !$blnXYGrid)
+        if($blnFlexGrid && !$blnXYGrid && !$blnGrid)
         {
             $strContent .= "\n" . '@include foundation-flex-grid;'; //Added first
             $strMixins .= "\n" . '@include foundation-flex-classes;'; //Added to bottom
         }
-        elseif($blnXYGrid)
+        if($blnXYGrid && !$blnGrid)
         {
             $strContent .= "\n" . '@include foundation-xy-grid-classes;';
         }

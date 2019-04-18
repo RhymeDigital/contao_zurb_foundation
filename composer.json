@@ -22,7 +22,8 @@
         "jalle19/php-yui-compressor": "^1.0",
         "tedivm/jshrink": "^1.1",
         "components/jquery": "^3.2",
-        "components/modernizr": "^2.7"
+        "components/modernizr": "^2.7",
+        "cweagans/composer-patches": "~1.6"
     },
     "require-dev": {
         "contao/manager-plugin": "^2.0"
@@ -36,7 +37,12 @@
         "branch-alias": {
             "dev-develop": "1.0.x-dev"
         },
-        "contao-manager-plugin": "Rhyme\\ContaoZurbFoundationBundle\\ContaoManager\\Plugin"
+        "contao-manager-plugin": "Rhyme\\ContaoZurbFoundationBundle\\ContaoManager\\Plugin",
+        "patches": {
+            "leafo/scssphp": {
+                "Comment out $nextIsRoot to fix Foundation compilation errors": "https://gist.githubusercontent.com/blairwinans/37a124511cbea7597e3a189cc6a27552/raw/0e0929de0e79f5b29528597ca020118291d9a613/scssphp.nextisRoot.patch"
+            }
+        }
     },
     "scripts": {
         "post-install-cmd": [
